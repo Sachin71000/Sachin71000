@@ -19,8 +19,26 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=0891B2&color_dots=#ebedf0,#a5b4fc,#818cf8,#6366f1,#0891B2
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=10B981&color_dots=#2d3343,#4b5563,#7C3AED,#A78BFA,#22D3EE
+            dist/github-snake.svg?palette=github-light&color_snake=%2316A34A&color_dots=#e5e7eb,#bbf7d0,#86efac,#22c55e,#15803d
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=%2322C55E&color_dots=#2d3343,#064e3b,#047857,#10b981,#34d399
+
+      - name: Tighten contribution canvas
+        shell: bash
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          for path in Path("dist").glob("*.svg"):
+              svg = path.read_text(encoding="utf-8")
+              svg = re.sub(
+                  r'viewBox="-16 -32 ([0-9.]+) 192" width="([0-9.]+)" height="192"',
+                  r'viewBox="-16 -22 \1 154" width="\2" height="154"',
+                  svg,
+                  count=1,
+              )
+              path.write_text(svg, encoding="utf-8")
+          PY
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
