@@ -21,7 +21,6 @@ SELF-HOSTED STATS: remove this comment line after configuration. -->
 
 <br />
 
-<!-- CONTRIBUTION SNAKE: run the workflow successfully, then remove this comment line.
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Sachin71000/Sachin71000/output/github-snake-dark.svg" />
@@ -29,7 +28,6 @@ SELF-HOSTED STATS: remove this comment line after configuration. -->
     <img alt="Snake eating Sachin's GitHub contributions" src="https://raw.githubusercontent.com/Sachin71000/Sachin71000/output/github-snake.svg" />
   </picture>
 </div>
-CONTRIBUTION SNAKE: remove this comment line after the output branch exists. -->
 
 <br />
 
